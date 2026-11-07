@@ -1,7 +1,6 @@
 <?php
 require_once "../config/database.php";
 
-// Mengambil data dari form
 $product_code = trim($_POST['product_code'] ?? '');
 $product_name = trim($_POST['product_name'] ?? '');
 $category = $_POST['category'] ?? '';
@@ -11,11 +10,9 @@ $stock = $_POST['stock'] ?? '';
 $entry_date = $_POST['entry_date'] ?? '';
 $description = trim($_POST['description'] ?? '');
 
-// Pilihan yang diperbolehkan
 $categories = ['Food', 'Drink', 'Stationery', 'Uniform'];
 $units = ['Pcs', 'Pack', 'Bottle'];
 
-// Validasi
 if (
     $product_code == '' ||
     $product_name == '' ||
@@ -44,7 +41,6 @@ if (!filter_var($stock, FILTER_VALIDATE_INT) || $stock < 0) {
     die("Stok harus berupa angka bulat dan tidak boleh negatif.");
 }
 
-// Memeriksa kode barang yang sama
 $check = mysqli_prepare(
     $conn,
     "SELECT product_id FROM products WHERE product_code = ?"
@@ -61,7 +57,6 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_stmt_close($check);
 
-// Menyimpan data
 $sql = "INSERT INTO products
 (product_code, product_name, category, unit, price, stock, entry_date, description)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
