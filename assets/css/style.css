@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eeeeee;
+    margin: 0;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    float: left;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: lightgray;
+}
+
+.sidebar nav {
+    margin-top: 30px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.sidebar nav a:hover {
+    background-color: #555555;
+}
+
+.content {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+header {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #333333;
+}
+
+.cards {
+    display: flex;
+    gap: 15px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    border: 1px solid #cccccc;
+}
+
+.card h3 {
+    color: #444444;
+}
+
+.card h2 {
+    color: #333333;
+}
+
+.welcome {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        float: none;
+        width: auto;
+        height: auto;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .cards {
+        display: block;
+    }
+
+    .card {
+        width: auto;
+        margin-bottom: 10px;
+    }
+}
